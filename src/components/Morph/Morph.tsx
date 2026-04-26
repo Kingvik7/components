@@ -10,8 +10,8 @@ import {
   loadBackgroundTexture,
 } from "./frostedGlass";
 
-const ICON1_SRC = "/scribble.svg";
-const ICON2_SRC = "/eraser.svg";
+const ICON1_SRC = `${import.meta.env.BASE_URL}scribble.svg`;
+const ICON2_SRC = `${import.meta.env.BASE_URL}eraser.svg`;
 
 const FRAG = buildFrostedGlassFrag({
   extraUniforms: `
@@ -98,7 +98,7 @@ function initGL(canvas: HTMLCanvasElement) {
   const prog = createProgram(gl, VERT, FRAG);
   gl.useProgram(prog);
   setupQuad(gl, prog);
-  loadBackgroundTexture(gl, prog, "/glass-bg.jpg", 0);
+  loadBackgroundTexture(gl, prog, `${import.meta.env.BASE_URL}glass-bg.jpg`, 0);
 
   // icon textures (units 1 & 2) — rasterized from SVG at high res
   function loadIconTexture(src: string, unit: number, uniformName: string) {
