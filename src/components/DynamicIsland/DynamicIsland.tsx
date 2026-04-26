@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate } from "motion/react";
 import s from "./DynamicIsland.module.css";
 
-const ART = "/artwork.jpg";
+const ART = `${import.meta.env.BASE_URL}artwork.jpg`;
 
 const SONG = {
   title: "Life is a Highway",
@@ -170,7 +170,7 @@ export default function DynamicIsland() {
           </div>
         <div className={s.phoneCrop}>
           <div className={s.phone}>
-            <img src="/iPhone.png" alt="" className={s.phoneFrame} />
+            <img src={`${import.meta.env.BASE_URL}iPhone.png`} alt="" className={s.phoneFrame} />
 
             <div className={s.islandPosition}>
               <motion.div
